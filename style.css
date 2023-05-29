@@ -1,0 +1,112 @@
+.header{ 
+        color:aqua;
+    border: 10px;
+}
+
+.box{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.Fbox{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.Question{
+    border: 2px solid #0a0;
+    border-radius: 0.67em;
+    padding: 0.5em;
+    background-color: snow;
+    width: 400px;
+    height: auto;
+    color:#015969;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.item{
+    display: none;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.item-active{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.switch{
+    padding: 0.5em 1em;
+    text-align: center;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #00849b;
+    background: #FFF;
+    border: solid 3px #00849b;
+    border-radius: 10px;
+    width: 100px;
+    height: 20px;
+    transition: 0.4s;
+}
+.switch:hover{
+    padding: 0.5em 1em;
+    width: 110px;
+    height: 20px;
+    margin: 2em 0;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    background: #03a07e;
+    border: solid 3px #00849b;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}
+.switch-active{
+    padding: 0.5em 1em;
+    width: 115px;
+    height: 20px;
+    margin: 2em 0;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    background: #00849b;
+    border: solid 3px #00849b;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}
+
+.backButton {
+    padding: 0.5em 1em;
+    text-align: center;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #9b0000;
+    background: #FFF;
+    border: solid 3px #9b0000;
+    border-radius: 10px;
+    width: 50px;
+    height: 20px;
+    transition: 0.4s;
+}
+.backButton:hover {
+    padding: 0.5em 1em;
+    width: 50px;
+    height: 20px;
+    margin: 2em 0;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    background: #9b0000;
+    border: solid 3px #9b0000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}

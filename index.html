@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>StudyCommands-Java</title>
+</head>
+<body>
+    <header class="header">
+        <p onclick="Back()" class="backButton">Back</p>
+        <h1>StudyCommands</h1><br>
+        <div class="Fbox" align="center">
+            <h2>advancementコマンドについて</h2><br>
+        </div>
+    </header>
+    
+    <div class="box">
+            <div class="switch-active" onclick="SwitchE(1)" id="1">①</div>
+
+                <div class="item-active" id="1.">/advancementはプレイヤーの進捗を操作するコマンドです。<br>構文は[/advancement {grant/revoke} セレクター モード 進捗のパス]です。</div>
+
+            <div class="switch" onclick="SwitchE(2)" id="2">②</div>
+
+                <div class="item" id="2.">grantは進捗を与え、revokeで剥奪します。</div>
+
+            <div class="switch" onclick="SwitchE(3)" id="3">③</div>
+
+            <div class="item" id="3.">モードにはいくつか種類があります。<br>下に種類と解説があります。
+
+                <div class="switch" onclick="SwitchEE(1)" id="1001">everything</div>
+
+                <div class="item" id="1001.">読み込まれている進捗全てを指定します。<br>everythingの後ろには進捗のパスは書きません。</div>
+
+                <div class="switch" onclick="SwitchEE(2)" id="1002">only</div>
+
+                <div class="item" id="1002.">指定された進捗のみを指定します。</div>
+
+                <div class="switch" onclick="SwitchEE(3)" id="1003">from</div>
+
+                <div class="item" id="1003.">指定された進捗と指定された進捗を親進捗としている(右に伸びる線上の)進捗、そこから派生している進捗全てを指定します。</div>
+
+                <div class="switch" onclick="SwitchEE(4)" id="1004">through</div>
+
+                <div class="item" id="1004.">指定された進捗をつなぐ線上の進捗、そこから派生している線上の進捗全てを指定します。</div>
+
+                <div class="switch" onclick="SwitchEE(5)" id="1005">until</div>
+
+                <div class="item" id="1005.">指定された進捗と指定された進捗の親進捗である(左に伸びる線上の)進捗全てを指定します。</div>
+
+            </div>
+
+            <div class="switch" onclick="SwitchE(4)" id="4">④</div>
+
+            <div class="item" id="4.">進捗のパスでは、minecraft:○○○○(カスタム進捗なら データパック名:○○○○) という感じで指定し、grantやrevokeで操作します。</div>
+          
+            <div class="switch" onclick="SwitchE(5)" id="5">テスト</div>
+
+                <div class="item" id="5.">全プレイヤーに進捗custom:example/testをあたえるコマンドを打ってください<br>
+                    <textarea class="Question" id="q1"></textarea>
+
+                    <br>実行者の進捗をすべて剥奪するコマンドを打ってください<br>
+                    <textarea class="Question" id="q2"></textarea>
+
+                    <br>全プレイヤーの進捗custom:example/testと、それの親進捗となっている進捗全てを剥奪するコマンドを打ってください<br>
+                    <textarea class="Question" id="q3"></textarea>
+
+                    <br>最も近いプレイヤーの進捗custom:example/testと、それを親進捗としている進捗、そこから派生している進捗全てを与えるコマンドを打ってください<br>
+                    <textarea class="Question" id="q4"></textarea>
+                    <div class="switch" onclick="Enter(4)">確認</div>
+                </div>
+
+            </div>
+    <script>
+
+        const switcherCount = 5;
+        const switcherCountM = 5;
+
+        
+
+        let Answers = [
+            [
+            "/advancement grant @a only custom:example/test",
+            "advancement grant @a only custom:example/test"
+            ],
+            [
+            "/advancement revoke @s everything",
+            "advancement revoke @s everything"
+            ],
+            [
+            "/advancement revoke @a until custom:example/test",
+            "advancement revoke @a until custom:example/test"
+            ],
+            [
+            "/advancement grant @p from custom:example/test",
+            "advancement grant @p from custom:example/test"
+            ]
+        ]
+        
+        window.onload = function(){
+            if (document.getElementsByTagName("random")){
+
+                if (document.getElementById("entity")){
+
+                    const Erng = Math.floor( Math.random() * EntitiesJ[0].length) ;
+
+
+
+                    Answers[0][0] = Answers[0][0] + EntitiesE[0][Erng] + "]" ;
+                    Answers[0][1] = Answers[0][1] + EntitiesE[0][Erng] + "]" ;
+
+                    console.log(Erng);
+                    document.getElementById("entity").innerText = EntitiesJ[0][Erng]
+
+                }
+            }
+        }
+
+        function Back(){
+            window.location.href = "https://gekiochibot.github.io/Java-Home/"
+        }
+
+        function SwitchE(id){
+            for (let i = 1; i <= switcherCount; i++) {
+                document.getElementById(i).className = "switch"
+                document.getElementById(i + ".").className = "item"
+            }
+            var D = document.getElementById(id)
+            var I = document.getElementById(id + ".")
+
+            D.className = D.className + "-active"
+            I.className = I.className + "-active"
+        }
+
+        function SwitchEE(id){
+            for (let i = 1; i <= switcherCountM; i++) {
+                document.getElementById(i+1000).className = "switch"
+                document.getElementById(i+1000 + ".").className = "item"
+            }
+            var D = document.getElementById(id + 1000)
+            var I = document.getElementById(id + 1000 + ".")
+
+            D.className = D.className + "-active"
+            I.className = I.className + "-active"
+        }
+
+        function Enter(qNum){
+            var CorrectCounts = 0;
+            const QCounts = qNum;
+            for (let i = 0; i < QCounts; i++) {
+            const Q = document.getElementById("q" + (i + 1))
+
+            if(Answers[i].indexOf(Q.value) != -1){
+                CorrectCounts += 1;
+            }else{
+            }   
+            console.log(CorrectCounts);
+            }
+            if (CorrectCounts == 0) {
+                window.alert("全問不正解です..")
+                return;
+            }else if(CorrectCounts > 0 && CorrectCounts < QCounts){
+                window.alert(CorrectCounts + "/" + QCounts + " 正解です")
+                return;
+            }else if(CorrectCounts == QCounts){
+                window.alert("全問正解です!")
+                return;
+            }
+        }
+
+    </script>
+</body>
